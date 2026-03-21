@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mystore-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mystore
+  template:
+    metadata:
+      labels:
+        app: mystore
+    spec:
+      containers:
+      - name: mystore
+        image: anu2706/mystore-site:v1
+        ports:
+        - containerPort: 80
+
